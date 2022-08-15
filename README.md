@@ -17,9 +17,10 @@ module "vpn" {
   source  = "tedivm/dev-vpn/aws"
   version = "~> 1.0"
 
-  identifier = "${local.identifier}-vpn"
-  subnet_ids = module.vpc.subnets.public[*].id
-  tags       = local.common_tags
+  identifier         = "${local.identifier}-vpn"
+  subnet_ids         = module.vpc.subnets.public[*].id
+  security_group_ids = [aws_security_group.optional.id]
+  tags               = local.common_tags
 }
 
 resource "local_file" "client_config" {

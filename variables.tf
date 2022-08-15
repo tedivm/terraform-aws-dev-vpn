@@ -9,6 +9,11 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
+variable "security_group_ids" {
+  description = "Additional Security Groups to add to the VPN endpoint."
+  default     = []
+}
+
 variable "tags" {
   default = {}
 }
