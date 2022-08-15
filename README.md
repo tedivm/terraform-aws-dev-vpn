@@ -15,7 +15,7 @@ The client configuration file is returned as output from this module. To create 
 ```terraform
 module "vpn" {
   source  = "tedivm/dev-vpn/aws"
-  version = "~> 1.0
+  version = "~> 1.0"
 
   identifier = "${local.identifier}-vpn"
   subnet_ids = module.vpc.subnets.public[*].id
