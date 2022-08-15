@@ -4,12 +4,11 @@ resource "tls_private_key" "ca" {
 }
 
 resource "tls_self_signed_cert" "ca" {
-  key_algorithm   = "RSA"
   private_key_pem = tls_private_key.ca.private_key_pem
 
   subject {
     common_name  = "${var.identifier}.ca.vpn"
-    organization = "Prodigy Broker"
+    organization = "Developer VPN"
   }
 
   validity_period_hours = 24 * 365 * 1
